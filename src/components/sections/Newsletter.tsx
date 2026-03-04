@@ -1,41 +1,49 @@
-import Container from "@/components/layout/Container";
-import { homeContent } from "@/data/home";
-import { Card, CardContent } from "@/components/ui/Card";
-import { Button } from "@/components/ui/Button";
+"use client";
 
 export default function Newsletter() {
-  const { newsletter } = homeContent;
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    // demo projet de cours
+    alert("Inscription envoyée (démo)");
+  }
 
   return (
-    <section className="pt-14 sm:pt-20">
-      <Container>
-        <Card>
-          <CardContent className="grid gap-6 md:grid-cols-2 md:items-center">
-            <div className="space-y-2">
-              <h2 className="text-2xl font-semibold tracking-tight">{newsletter.title}</h2>
-              <p className="text-sm leading-relaxed text-neutral-600">{newsletter.subtitle}</p>
-            </div>
+    <section className="py-14">
+      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm">
+          <div className="flex flex-col gap-1">
+            <h2 className="text-xl font-semibold tracking-tight">
+              Newsletter
+            </h2>
+            <p className="text-sm text-neutral-600">
+              Recevez les actus et disponibilités (démo).
+            </p>
+          </div>
 
-            <form
-              className="flex flex-col gap-3 sm:flex-row"
-              onSubmit={(e) => e.preventDefault()}
+          <form
+            onSubmit={handleSubmit}
+            className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center"
+          >
+            <input
+              type="email"
+              required
+              placeholder="Votre email"
+              className="h-11 w-full rounded-xl border border-neutral-200 px-4 text-sm outline-none focus:ring-2 focus:ring-neutral-900/10"
+            />
+
+            <button
+              type="submit"
+              className="h-11 rounded-xl bg-black px-5 text-sm font-medium text-white hover:opacity-90"
             >
-              <label className="sr-only" htmlFor="email">
-                Email
-              </label>
-              <input
-                id="email"
-                type="email"
-                placeholder="Votre email"
-                className="h-11 w-full rounded-full border border-black/10 px-4 text-sm outline-none focus:border-black/30"
-              />
-              <Button type="submit" className="h-11">
-                S’inscrire
-              </Button>
-            </form>
-          </CardContent>
-        </Card>
-      </Container>
+              S’inscrire
+            </button>
+          </form>
+
+          <p className="mt-2 text-xs text-neutral-500">
+            Aucun spam. Désinscription possible.
+          </p>
+        </div>
+      </div>
     </section>
   );
 }

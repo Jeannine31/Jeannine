@@ -2,11 +2,48 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body {
-  height: 100%;
+:root{
+  --mj-ink: #2B3B4B;      /* bleu-gris foncé */
+  --mj-ink-2:#525F6C;     /* bleu-gris */
+  --mj-sky:#B8D9F7;       /* bleu clair */
+  --mj-paper:#F7FAFD;     /* blanc bleuté */
+  --mj-accent:#E2543C;    /* rouge brique */
+  --mj-accent-2:#FE472E;  /* rouge + vif */
 }
 
-body {
-  margin: 0;
-  font-family: system-ui, -apple-system, sans-serif;
+html, body { height:100%; }
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  color: var(--mj-ink);
+  background: #fff;
+}
+
+/* Titres style "Merci Jeannine" (si Oswald dispo via Google Fonts dans layout) */
+.mj-title{
+  font-family: "Oswald", system-ui, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+/* Fond vichy (gingham) */
+.mj-gingham{
+  background-color: var(--mj-paper);
+  background-image:
+    linear-gradient(90deg, rgba(184,217,247,.55) 0 25%, transparent 25% 50%, rgba(184,217,247,.55) 50% 75%, transparent 75% 100%),
+    linear-gradient(0deg,  rgba(184,217,247,.55) 0 25%, transparent 25% 50%, rgba(184,217,247,.55) 50% 75%, transparent 75% 100%);
+  background-size: 64px 64px;
+}
+
+/* Boutons MJ */
+.mj-btn-primary{
+  background: var(--mj-accent);
+  color:#fff;
+  border: 2px solid rgba(0,0,0,.25);
+  box-shadow: 0 10px 22px rgba(0,0,0,.12);
+}
+.mj-btn-primary:hover{ filter: brightness(.98); }
+.mj-btn-ghost{
+  background:#fff;
+  color: var(--mj-ink);
+  border: 1px solid rgba(43,59,75,.20);
 }

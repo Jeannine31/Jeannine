@@ -1,42 +1,41 @@
+// src/app/page.tsx
+import Container from "@/components/layout/Container";
 import Hero from "@/components/sections/Hero";
 import FeatureGrid from "@/components/sections/FeatureGrid";
-import Steps from "@/components/sections/Steps";
 import DeliveryZone from "@/components/sections/DeliveryZone";
 import Newsletter from "@/components/sections/Newsletter";
-import Container from "@/components/layout/Container";
-import { Card, CardContent } from "@/components/ui/Card";
-import { Button } from "@/components/ui/Button";
+import B2BOffer from "@/components/sections/B2BOffer";
+import B2BContact from "@/components/sections/B2Bcontact";
+import PartnerCTA from "@/components/sections/PartnerCTA";
 
 export default function HomePage() {
   return (
     <>
       <Hero />
-      <FeatureGrid />
-      <Steps />
-      <DeliveryZone />
-      <Newsletter />
 
-      {/* Bloc "Commander" (ancre) */}
-      <section id="commander" className="pt-14 sm:pt-20">
-        <Container>
-          <Card>
-            <CardContent className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-              <div className="space-y-1">
-                <h2 className="text-2xl font-semibold tracking-tight">Commander</h2>
-                <p className="text-sm text-neutral-600">
-                  Ici tu brancheras plus tard un lien vers la plateforme de commande / formulaire.
-                </p>
-              </div>
-              <div className="flex gap-3">
-                <Button variant="secondary" href="/comment-ca-marche">
-                  Comment ça marche
-                </Button>
-                <Button href="/contact">Contact</Button>
-              </div>
-            </CardContent>
-          </Card>
+      <div className="py-10">
+        <Container className="space-y-10">
+          <FeatureGrid />
+
+          {/* B2B focus (MISSION: Défi #1) */}
+          <section id="b2b" className="scroll-mt-28">
+            <B2BOffer />
+          </section>
+
+          {/* Contact visible (MISSION: permettre de contacter) */}
+          <section id="contact" className="scroll-mt-28">
+            <B2BContact />
+          </section>
+
+          {/* Restaurateurs (MISSION: Défi #2) */}
+          <section id="restaurants" className="scroll-mt-28">
+            <PartnerCTA />
+          </section>
+
+          <DeliveryZone />
+          <Newsletter />
         </Container>
-      </section>
+      </div>
     </>
   );
 }
